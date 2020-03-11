@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SituationActivity"></activity>
+        <activity android:name=".NoticeActivity"></activity>
+        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".MedActivity"></activity>
+        <activity android:name=".ForeignActivity"></activity>
+        <activity android:name=".InfoActivity"></activity>
     </application>
 
 </manifest>
