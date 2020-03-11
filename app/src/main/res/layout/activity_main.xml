@@ -16,6 +16,13 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="open"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:text="HOME"
+            android:layout_margin="10dp"
+            android:textSize="15pt"
+            android:gravity="center"/>
         <!--네비게이션 메뉴를 열기 위한 버튼 설정-->
 
     </LinearLayout>
