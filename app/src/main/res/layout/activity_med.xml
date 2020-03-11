@@ -15,14 +15,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="open"/>
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="75dp"
-            android:text="MEDICAL"
-            android:layout_margin="10dp"
-            android:textSize="15pt"
-            android:gravity="center"/>
     </LinearLayout>
-    <include layout="@layout/activity_drawer" />
+    <inclue layout="@layout/activity_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
