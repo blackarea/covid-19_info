@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +9,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     >
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +24,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="150sp"
         >
-
 
         <Button
             android:id="@+id/btn_map"
@@ -80,12 +79,5 @@
             android:text="공지사항"
             android:textSize="20sp"/>
     </GridLayout>
-
-
-
-
-
-
-
 
 </LinearLayout>
