@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button btn_map,btn_situation,btn_info,btn_med,btn_foreign,btn_notice;   //버튼 변수 설정
-    private final long FINISH_INTERVAL_TIME = 2000;//2초안에 뒤로가기를 한번 더 누르면 종료되도록 2000설정
     private long Back;
 
     @Override
