@@ -28,7 +28,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 NotificationManager notificationManager = (NotificationManager) Main2Activity.this.getSystemService(Main2Activity.this.NOTIFICATION_SERVICE);
                 // notification을 사용하기 위한 객체 채널 ID가 동일하면 notifiy()를 통해 알림 내용을 전달
-                Intent intent1 = new Intent(Main2Activity.this, MainActivity.class);
+                Intent intent1 = new Intent(Main2Activity.this, Main2Activity.class);
                 // 인텐트 생성. 액티비티에서 다른 액티비티로 전환할때 사용
                 Notification.Builder builder = new Notification.Builder(getApplicationContext());
                 // 알림을 만들어내는 builder 객체 생성
