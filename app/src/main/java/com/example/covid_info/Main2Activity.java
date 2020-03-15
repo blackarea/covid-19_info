@@ -16,7 +16,7 @@ import android.widget.Button;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,15 +26,15 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {      // 클릭 이벤트 구현
             @Override
             public void onClick(View v) {
-                NotificationManager notificationManager = (NotificationManager) MainActivity.this.getSystemService(MainActivity.this.NOTIFICATION_SERVICE);
+                NotificationManager notificationManager = (NotificationManager) Main2Activity.this.getSystemService(Main2Activity.this.NOTIFICATION_SERVICE);
                 // notification을 사용하기 위한 객체 채널 ID가 동일하면 notifiy()를 통해 알림 내용을 전달
-                Intent intent1 = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent1 = new Intent(Main2Activity.this, MainActivity.class);
                 // 인텐트 생성. 액티비티에서 다른 액티비티로 전환할때 사용
                 Notification.Builder builder = new Notification.Builder(getApplicationContext(),"alarm_channel_id");
                 // 알림을 만들어내는 builder 객체 생성
                 intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 // 액티비티 중복을 방지하기/관리 (최상위 액티비티 호출시 최상위 액티비티 재사용 | 호출하는 액티비티를 최상위로 올리고 그 위의 액티비티 모두 제거)
-                PendingIntent pendingNotificationIntent = PendingIntent.getActivity(MainActivity.this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingNotificationIntent = PendingIntent.getActivity(Main2Activity.this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
                 // 인텐트와 용도는 같으나 특정한 순간에 액티비티를 이동
                 builder.setSmallIcon(R.drawable.ic_launcher_foreground).setTicker("HETT").setWhen(System.currentTimeMillis())
                         .setContentTitle("푸쉬 제목").setContentText("푸쉬내용")
