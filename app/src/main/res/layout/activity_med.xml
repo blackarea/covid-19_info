@@ -8,11 +8,12 @@
     android:layout_height="match_parent"
     tools:context=".MedActivity">
 
-<Button
+    <ImageButton
         android:id="@+id/btnHome"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="HOME"/>
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        app:srcCompat="@drawable/Home"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
