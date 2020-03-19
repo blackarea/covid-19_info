@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MapActivity">
 
-    <ImageButton
-        android:id="@+id/btnHome"
-        android:layout_width="75sp"
-        android:layout_height="75sp"
-        app:srcCompat="@drawable/Home"
-        />
-    <TextView
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="75sp"
+            android:layout_height="75sp"
+            app:srcCompat="@drawable/Home"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Map"
+            android:textSize="50sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Map"
-        android:textSize="50sp"/>
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/map_color" />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
