@@ -8,33 +8,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="전체 현황 제작 예정"
-        android:textSize="50sp"
-        android:layout_marginTop="150sp"
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
         android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/btn_fresh"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="새로고침"/>
+
+
+
+
+
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="150sp">
+        android:layout_gravity="center">
 
         <ImageButton
             android:id="@+id/btn_map"
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="0"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/Map" />
+            app:srcCompat="@drawable/map" />
         <TextView
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="1"
             android:layout_column="0"
@@ -43,14 +49,14 @@
             android:gravity="center"/>
         <ImageButton
             android:id="@+id/btn_info"
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="1"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/Info" />
+            app:srcCompat="@drawable/info" />
         <TextView
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="1"
             android:layout_column="1"
@@ -69,13 +75,13 @@
          android:layout_gravity="center">
         <ImageButton
             android:id="@+id/btn_med"
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="0"
-            app:srcCompat="@drawable/MedicalCenter" />
+            app:srcCompat="@drawable/medicalcenter" />
         <TextView
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="1"
             android:layout_column="0"
@@ -84,13 +90,13 @@
             android:gravity="center"/>
         <ImageButton
             android:id="@+id/btn_foreign"
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="1"
-            app:srcCompat="@drawable/Foreign" />
+            app:srcCompat="@drawable/foreign" />
         <TextView
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="1"
             android:layout_column="1"
@@ -99,13 +105,13 @@
             android:gravity="center"/>
         <ImageButton
             android:id="@+id/btn_notice"
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="2"
-            app:srcCompat="@drawable/Notice" />
+            app:srcCompat="@drawable/notice" />
         <TextView
-            android:layout_width="100sp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="1"
             android:layout_column="2"
