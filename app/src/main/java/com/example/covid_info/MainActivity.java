@@ -4,20 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
-import android.util.EventLogTags;
-import android.util.Log;
-import android.view.MotionEvent;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -30,13 +24,19 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btn_map,btn_foreign,btn_notice,btn_med,btn_info;
+    private Button btn_fresh;
     private long Back;
-    private String htmlPageUrl = "http://ncov.mohw.go.kr/";
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //메인액티비티에대한 설정
+
+        tv=findViewById(R.id.tv);
+
+        Content c = new Content();
+        c.execute();
 
 
         btn_map=(ImageButton)findViewById(R.id.btn_map);
@@ -82,6 +82,47 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private class Content extends AsyncTask<Void,Void,Void>{
+        ProgressDialog progressDialog;
+        String x="";
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(MainActivity.this);
+            progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+
+                String url = "http://ncov.mohw.go.kr/";
+
+                //url에 접속
+                Document document = Jsoup.connect(url).get();
+                //select td라는 요소에 class 속성이 있는 td태그 안에 있는 모든 문자열을 Arraylist 형태로 갖고옴
+                Elements links = document.select("ul.liveNum li span.num");
+                //Elements는 리스트 형태이므로 Element로 변환하여 하나씩 출력
+                for(Element element : links){
+                    x+= element.text()+"\n";
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            tv.setText(x);
+            progressDialog.dismiss();
+        }
+    }
+
 
     @Override
     public void onBackPressed(){
