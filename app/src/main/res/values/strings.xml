@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Covid_info</string>
+
+    <string name="city_10">경기</string>
+    <string name="city_11">서울</string>
+    <string name="city_12">인천</string>
+    <string name="city_13">강원</string>
+    <string name="city_14">충북</string>
+    <string name="city_15">충남</string>
+    <string name="city_16">대전</string>
+    <string name="city_17">경북</string>
+    <string name="city_18">경남</string>
+    <string name="city_19">전북</string>
+    <string name="city_20">전남</string>
+    <string name="city_21">광주</string>
+    <string name="city_22">대구</string>
+    <string name="city_23">울산</string>
+    <string name="city_24">부산</string>
+    <string name="city_25">제주</string>
+
 </resources>
