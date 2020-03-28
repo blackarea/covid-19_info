@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton btn_map,btn_foreign,btn_notice,btn_med,btn_info;
+    private ImageButton btn_map,btn_foreign,btn_notice,btn_med,btn_info,btn_sit;
     private Button btn_fresh;
     private long Back;
     TextView tv;
@@ -47,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
+        btn_sit=(ImageButton)findViewById(R.id.btn_sit);
+        btn_sit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SituationActivity.class);
+                startActivity(intent);
+            }
+        });//삭제 필요
         btn_info=(ImageButton)findViewById(R.id.btn_info);
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
