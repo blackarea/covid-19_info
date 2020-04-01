@@ -51,22 +51,24 @@ public class MapActivity extends AppCompatActivity {
 
     }
 
-    /** 지도 위에 지역이름을 나타내주는 텍스트뷰를 가지는 레이아웃을 만듬 **/
+
+
+        /** 지도 위에 지역이름을 나타내주는 텍스트뷰를 가지는 레이아웃을 만듬 **/
     private void makeLinearLayout() {
-        TextView tv[] = new TextView[16];
+        TextView mapTextView[] = new TextView[16];
 
         //도시의 수는 16개
         for (int i = 0; i < 16; i++) {
             linearTextView[i] = new LinearLayout(this);
-            tv[i] = new TextView(this);
+            mapTextView[i] = new TextView(this);
 
             Drawable drawable = this.getResources().getDrawable(R.drawable.ic_chat_bubble);
             int padding = 40;
 
-            tv[i].setText(R.string.city_10 + i);
-            tv[i].setTextColor(Color.BLACK);
+            mapTextView[i].setText(R.string.city_10 + i);
+            mapTextView[i].setTextColor(Color.BLACK);
 
-            linearTextView[i].addView(tv[i]);
+            linearTextView[i].addView(mapTextView[i]);
             linearTextView[i].setOrientation(LinearLayout.VERTICAL);
             linearTextView[i].setPadding(padding, padding - 20, padding, padding);
             //텍스트뷰에 이미지를 씌우기 위한 작업
