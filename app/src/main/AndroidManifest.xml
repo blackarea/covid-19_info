@@ -24,7 +24,7 @@
         <activity android:name=".MedActivity" />
         <activity android:name=".ForeignActivity" />
         <activity android:name=".InfoActivity" />
-        <activity android:name=".MessageActivity" />
+
         <receiver android:name="com.example.covid_info.receiveAlarm"></receiver>
     </application>
 

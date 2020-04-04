@@ -1,6 +1,7 @@
 package com.example.covid_info;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,56 +33,56 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //메인액티비티에대한 설정
-
-        tv=findViewById(R.id.tv);
-
+        if(setAlarm.cnt == 0) {
+            setAlarm.setAlarm(this);
+        }
+        tv = findViewById(R.id.tv);
+        buttonSet();
         Content c = new Content();
         c.execute();
-
-
-        btn_map=(ImageButton)findViewById(R.id.btn_map);
-        btn_map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,MapActivity.class);
-                startActivity(intent);
-            }
-        });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
-        btn_info=(ImageButton)findViewById(R.id.btn_info);
-        btn_info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,InfoActivity.class);
-                startActivity(intent);
-            }
-        });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
-        btn_med=(ImageButton)findViewById(R.id.btn_med);
-        btn_med.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,MedActivity.class);
-                startActivity(intent);
-            }
-        });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
-        btn_foreign=(ImageButton)findViewById(R.id.btn_foreign);
-        btn_foreign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ForeignActivity.class);
-                startActivity(intent);
-            }
-        });//btn_foreign id가 있는 버튼 입력시 ForeignActivity로 이동
-        btn_notice=(ImageButton)findViewById(R.id.btn_notice);
-        btn_notice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,NoticeActivity.class);
-                startActivity(intent);
-            }
-        });//btn_notice id가 있는 버튼 입력시 NoticeActivity로 이동
-
-
     }
+    public void buttonSet(){
+            btn_map = (ImageButton) findViewById(R.id.btn_map);
+            btn_map.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                    startActivity(intent);
+                }
+            });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
+            btn_info = (ImageButton) findViewById(R.id.btn_info);
+            btn_info.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+                    startActivity(intent);
+                }
+            });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
+            btn_med = (ImageButton) findViewById(R.id.btn_med);
+            btn_med.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, MedActivity.class);
+                    startActivity(intent);
+                }
+            });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
+            btn_foreign = (ImageButton) findViewById(R.id.btn_foreign);
+            btn_foreign.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, ForeignActivity.class);
+                    startActivity(intent);
+                }
+            });//btn_foreign id가 있는 버튼 입력시 ForeignActivity로 이동
+            btn_notice = (ImageButton) findViewById(R.id.btn_notice);
+            btn_notice.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, NoticeActivity.class);
+                    startActivity(intent);
+                }
+            });//btn_notice id가 있는 버튼 입력시 NoticeActivity로 이동
+        }
 
     private class Content extends AsyncTask<Void,Void,Void>{
         ProgressDialog progressDialog;
@@ -132,5 +133,4 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"뒤로가기 버튼을 한번더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
         Back=System.currentTimeMillis();
     }
-
 }

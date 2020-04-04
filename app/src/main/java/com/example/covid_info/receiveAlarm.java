@@ -1,16 +1,18 @@
 package com.example.covid_info;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 
 public class receiveAlarm extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent){
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        /*
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             // API 버전이 오레오 이상인 경우 notification 채널이 있어야함
             NotificationChannel notificationChannel =
@@ -22,14 +24,14 @@ public class receiveAlarm extends BroadcastReceiver {
             notificationChannel.setDescription("알람테스트");
             notificationManager.createNotificationChannel(notificationChannel);
         }
-        */
-        Intent receiveIntent = new Intent(context, releaseAlarm.class);
+
+        Intent receiveIntent = new Intent(context, MainActivity.class);
         PendingIntent receivingIntent = PendingIntent.getBroadcast(context, 0, receiveIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         //Notification.Builder builder = new Notification.Builder(context,"alarm_channel_id");
         // API 26이상 빌더
-        Notification.Builder builder = new Notification.Builder(context);
+        Notification.Builder builder = new Notification.Builder(context,"alarm_channel_id");
         builder.setSmallIcon(R.drawable.ic_launcher_foreground).setTicker("HETT").setWhen(System.currentTimeMillis())
-                .setContentTitle("푸쉬 제목").setContentText("푸쉬내용").setContentIntent(receivingIntent)
+                .setContentTitle("확진자 수 업데이트").setContentText("푸쉬내용").setContentIntent(receivingIntent)
                 .setAutoCancel(true).setOngoing(true);
 
         notificationManager.notify(1, builder.build());
