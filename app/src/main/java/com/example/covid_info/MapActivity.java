@@ -175,67 +175,67 @@ public class MapActivity extends AppCompatActivity {
 
             /** 좌표로 인한 하드 코딩 **/
             switch (order) {
-                case 0: // 경기
+                case 0: // 경기(9
                     left = 150;
                     top = 100;
                     break;
-                case 1: // 서울
+                case 1: // 서울(1
                     left = 210;
                     top = 270;
                     break;
-                case 2: // 인천
+                case 2: // 인천(4
                     left = 70;
                     top = 220;
                     break;
-                case 3: // 강원
+                case 3: // 강원(10
                     left = 300;
                     top = 10;
                     break;
-                case 4: // 충북
+                case 4: // 충북(11
                     left = 340;
                     top = 420;
                     break;
-                case 5: // 충남
+                case 5: // 충남(12
                     left = 50;
                     top = 480;
                     break;
-                case 6: // 대전
+                case 6: // 대전(6
                     left = 335;
                     top = 665;
                     break;
-                case 7: // 경북
+                case 7: // 경북(15
                     left = 470;
                     top = 445;
                     break;
-                case 8: // 경남
+                case 8: // 경남(16
                     left = 410;
                     top = 865;
                     break;
-                case 9: // 전북
+                case 9: // 전북(13
                     left = 120;
                     top = 770;
                     break;
-                case 10: // 전남
+                case 10: // 전남(14
                     left = -22;
                     top = 1000;
                     break;
-                case 11: // 광주
+                case 11: // 광주(5
                     left = 185;
                     top = 1070;
                     break;
-                case 12: // 대구
+                case 12: // 대구(3
                     left = 597;
                     top = 820;
                     break;
-                case 13: // 울산
+                case 13: // 울산(7
                     left = 750;
                     top = 910;
                     break;
-                case 14: // 부산
+                case 14: // 부산(2
                     left = 626;
                     top = 1025;
                     break;
-                case 15: // 제주
+                case 15: // 제주(17
                     left = 100;
                     top = 1450;
                     break;
