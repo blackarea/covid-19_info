@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".Popup" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +26,8 @@
         <activity android:name=".MedActivity" />
         <activity android:name=".ForeignActivity" />
         <activity android:name=".InfoActivity" />
-
         <receiver android:name="com.example.covid_info.receiveAlarm"></receiver>
+
     </application>
 
 </manifest>
