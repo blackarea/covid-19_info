@@ -30,6 +30,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:background="#90FFFF"
         android:id="@+id/relativeMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
