@@ -32,24 +32,24 @@ public class SituationActivity extends AppCompatActivity
     int areanum = 0;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_situation);
+protected void onCreate(@Nullable Bundle savedInstanceState)
+{
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_situation);
 
-        btnHome=findViewById(R.id.btnHome);
-        btnHome.setOnClickListener(new View.OnClickListener()
+    btnHome=findViewById(R.id.btnHome);
+    btnHome.setOnClickListener(new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
         {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(SituationActivity.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        Content c = new Content();
-        c.execute();
-    }
+            Intent intent = new Intent(SituationActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
+    });
+    Content c = new Content();
+    c.execute();
+}
     private class Content extends AsyncTask<Void, Void, Void> {
 
 
@@ -79,7 +79,7 @@ public class SituationActivity extends AppCompatActivity
             return null;
         }
     }
-    public void Seoul(View v)
+    public void Seoul()
         {
             int i=0;
             int k=1;

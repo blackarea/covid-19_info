@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".SituationActivity">
+    tools:context=".SituationActivity"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:paddingBottom="8dp"
@@ -28,21 +29,6 @@
             android:text="Situation"
             android:textSize="50sp" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:paddingBottom="8sp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="Seoul"
-            android:gravity="center"
-            android:text="팝업" />
     </LinearLayout>
 
 </LinearLayout>

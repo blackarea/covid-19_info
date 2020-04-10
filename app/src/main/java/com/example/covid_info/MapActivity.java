@@ -29,8 +29,18 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class MapActivity extends AppCompatActivity {
+import java.io.IOException;
 
+public class MapActivity extends AppCompatActivity {
+    int i = 0;
+    String str[] = new String[200];
+    String Increase;
+    String Confirmer;
+    String IsolCancel;
+    String Dead;
+    String Incidence;
+    String Area = "지역";
+    int areanum = 0;
     private ImageButton btnHome;
     //지도가 들어가는 레이아웃
     private RelativeLayout relativeLayout;
@@ -52,6 +62,7 @@ public class MapActivity extends AppCompatActivity {
                 Intent intent = new Intent(MapActivity.this, MainActivity.class);
                 startActivity(intent);
             }
+
         });
 
         relativeLayout = findViewById(R.id.relativeMap);
@@ -72,8 +83,38 @@ public class MapActivity extends AppCompatActivity {
 
         makeLinearLayout();
 
+        Content c = new Content();
+        c.execute();
     }
+    private class Content extends AsyncTask<Void, Void, Void> {
 
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        public Void doInBackground(Void... voids) {
+            try {
+                i=0;
+                String url = "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=";
+                Document document = Jsoup.connect(url).get();
+                Elements links = document.select("td[class]");
+                for (Element element : links) {
+                    str[i] = element.text();
+                    i++;
+                }
+
+            } catch (IOException e) {
+                Log.e("abc", "기분좋다");
+                e.printStackTrace();
+
+            }
+            return null;
+        }
+    }
     private class MapParser extends AsyncTask<Void, Void, Void> {
         String parseString = "";
 
@@ -164,51 +205,147 @@ public class MapActivity extends AppCompatActivity {
         //경기
         linearTextView[0].setX(350);
         linearTextView[0].setY(60);
+        linearTextView[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(0);
+            }
+        });
         //서울
         linearTextView[1].setX(340);
         linearTextView[1].setY(200);
+        linearTextView[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(1);
+            }
+        });
         //인천
         linearTextView[2].setX(180);
         linearTextView[2].setY(140);
+        linearTextView[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(2);
+            }
+        });
         //강원
         linearTextView[3].setX(600);
         linearTextView[3].setY(100);
+        linearTextView[3].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(3);
+            }
+        });
         //충북
         linearTextView[4].setX(500);
         linearTextView[4].setY(400);
+        linearTextView[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(4);
+            }
+        });
         //충남
         linearTextView[5].setX(200);
         linearTextView[5].setY(450);
+        linearTextView[5].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(5);
+            }
+        });
         //대전
         linearTextView[6].setX(430);
         linearTextView[6].setY(580);
+        linearTextView[6].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(6);
+            }
+        });
         //경북
         linearTextView[7].setX(800);
         linearTextView[7].setY(550);
+        linearTextView[7].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(7);
+            }
+        });
         //경남
         linearTextView[8].setX(550);
         linearTextView[8].setY(970);
+        linearTextView[8].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(8);
+            }
+        });
         //전북
         linearTextView[9].setX(300);
         linearTextView[9].setY(800);
+        linearTextView[9].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(9);
+            }
+        });
         //전남
         linearTextView[10].setX(200);
         linearTextView[10].setY(1150);
+        linearTextView[10].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(10);
+            }
+        });
         //광주
         linearTextView[11].setX(290);
         linearTextView[11].setY(960);
+        linearTextView[11].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(11);
+            }
+        });
         //대구
         linearTextView[12].setX(700);
         linearTextView[12].setY(750);
+        linearTextView[12].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(12);
+            }
+        });
         //울산
         linearTextView[13].setX(850);
         linearTextView[13].setY(820);
+        linearTextView[13].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(13);
+            }
+        });
         //부산
         linearTextView[14].setX(780);
         linearTextView[14].setY(1000);
+        linearTextView[14].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(14);
+            }
+        });
         //제주
         linearTextView[15].setX(250);
         linearTextView[15].setY(1370);
+        linearTextView[15].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Seoul(15);
+            }
+        });
 
 
     }
@@ -401,6 +538,106 @@ public class MapActivity extends AppCompatActivity {
         else
             i = 50;
         return i;
+    }
+
+    public void Seoul(int i)
+    {
+        int k=1;
+        if(i == 0)
+        {
+            Area = "경기";
+            k = 9;
+        }
+        else if(i == 1)
+        {
+            Area = "서울";
+            k = 1;
+        }
+        else if(i == 2)
+        {
+            Area = "인천";
+            k = 4;
+        }
+        else if(i == 3)
+        {
+            Area = "강원";
+            k = 10;
+        }
+        else if(i == 4)
+        {
+            Area = "충북";
+            k = 11;
+        }
+        else if(i == 5)
+        {
+            Area = "충남";
+            k = 12;
+        }
+        else if(i == 6)
+        {
+            Area = "대전";
+            k = 6;
+        }
+        else if(i == 7)
+        {
+            Area = "경북";
+            k = 15;
+        }
+        else if(i == 8)
+        {
+            Area = "경남";
+            k = 16;
+        }
+        else if(i == 9)
+        {
+            Area = "전북";
+            k = 13;
+        }
+        else if(i == 10)
+        {
+            Area = "전남";
+            k = 14;
+        }
+        else if(i == 11)
+        {
+            Area = "광주";
+            k = 5;
+        }
+        else if(i == 12)
+        {
+            Area = "대구";
+            k = 3;
+        }
+        else if(i == 13)
+        {
+            Area = "울산";
+            k = 7;
+        }
+        else if(i == 14)
+        {
+            Area = "부산";
+            k = 2;
+        }
+        else if(i == 15)
+        {
+            Area = "제주";
+            k = 17;
+        }
+        else if(i == 16)
+        {
+            Area = "세종";
+            k = 8;
+        }
+        areanum = 8*k;
+        Increase = str[areanum];
+        Confirmer = str[3+areanum];
+        IsolCancel = str[5+areanum];
+        Dead = str[6+areanum];
+        Incidence = str[7+areanum];
+        Intent intent = new Intent(this, Popup.class);
+        intent.putExtra("data","증감수 : " + Increase + "\n확진자 : " + Confirmer + "\n격리해제 : "+ IsolCancel + "\n사망자 : " + Dead + "\n발생율 : " + Incidence);
+        intent.putExtra("data2",Area);
+        startActivityForResult(intent, 1);
     }
 }
 
