@@ -106,9 +106,6 @@
             android:textColor="#000000"
             android:gravity="center"/>
 
-
-
-
     </GridLayout>
 
     <GridLayout

@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSet();
         Content c = new Content();
         c.execute();
+
     }
     public void buttonSet(){
             btn_map = (ImageButton) findViewById(R.id.btn_map);
