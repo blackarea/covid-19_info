@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btn_map,btn_foreign,btn_notice,btn_med,btn_info;
     private Button btn_fresh;
     private long Back;
-    TextView tv;
+    TextView tv1,tv2,tv3,tv4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,11 @@ public class MainActivity extends AppCompatActivity {
         if(setAlarm.cnt == 0) {
             setAlarm.setAlarm(this);
         }
-        tv = findViewById(R.id.tv);
+        tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
+        tv3 = findViewById(R.id.tv3);
+        tv4 = findViewById(R.id.tv4);
+
         buttonSet();
         Content c = new Content();
         c.execute();
@@ -86,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     private class Content extends AsyncTask<Void,Void,Void>{
         ProgressDialog progressDialog;
-        String x="";
+        String [] parseArray =new String[4];
 
         @Override
         protected void onPreExecute(){
@@ -97,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            int i=0;
             try {
 
                 String url = "http://ncov.mohw.go.kr/";
@@ -107,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 Elements links = document.select("ul.liveNum li span.num");
                 //Elements는 리스트 형태이므로 Element로 변환하여 하나씩 출력
                 for(Element element : links){
-                    x+= element.text()+"\n";
+                    parseArray[i++]=element.text();
                 }
 
             } catch (IOException e) {
@@ -119,7 +124,10 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            tv.setText(x);
+            tv1.setText("확진자: "+parseArray[0]);
+            tv2.setText("사망자: "+parseArray[1]);
+            tv3.setText("격리해제: "+parseArray[2]);
+            tv4.setText("발병률: "+parseArray[3]);
             progressDialog.dismiss();
         }
     }
