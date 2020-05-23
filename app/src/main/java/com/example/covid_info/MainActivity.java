@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton btn_map,btn_foreign,btn_notice,btn_med,btn_info;
+    private ImageButton btn_map,btn_notice,btn_mask,btn_vaccine;
     private Button btn_fresh;
     private long Back;
     TextView tv1,tv2,tv3,tv4;
@@ -55,35 +55,27 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
-            btn_info = (ImageButton) findViewById(R.id.btn_info);
-            btn_info.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, InfoActivity.class);
-                    startActivity(intent);
-                }
-            });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
-            btn_med = (ImageButton) findViewById(R.id.btn_med);
-            btn_med.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, MedActivity.class);
-                    startActivity(intent);
-                }
-            });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
-            btn_foreign = (ImageButton) findViewById(R.id.btn_foreign);
-            btn_foreign.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, ForeignActivity.class);
-                    startActivity(intent);
-                }
-            });//btn_foreign id가 있는 버튼 입력시 ForeignActivity로 이동
             btn_notice = (ImageButton) findViewById(R.id.btn_notice);
             btn_notice.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, NoticeActivity.class);
+                    startActivity(intent);
+                }
+            });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
+            btn_mask = (ImageButton) findViewById(R.id.btn_mask);
+            btn_mask.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, MaskActivity.class);
+                    startActivity(intent);
+                }
+            });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
+            btn_vaccine = (ImageButton) findViewById(R.id.btn_vaccine);
+            btn_vaccine.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, VaccineActivity.class);
                     startActivity(intent);
                 }
             });//btn_notice id가 있는 버튼 입력시 NoticeActivity로 이동
