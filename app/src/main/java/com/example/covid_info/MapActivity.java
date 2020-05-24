@@ -399,10 +399,12 @@ public class MapActivity extends AppCompatActivity {
                     colorFilter = new PorterDuffColorFilter(Color.parseColor("#FFCCCC"), PorterDuff.Mode.SRC_ATOP);
                 } else if (percent > 0.003) {
                     colorFilter = new PorterDuffColorFilter(Color.parseColor("#FFDADA"), PorterDuff.Mode.SRC_ATOP);
-                } else if (percent > 0.0015) {
-                    colorFilter = new PorterDuffColorFilter(Color.parseColor("#FFE2E2"), PorterDuff.Mode.SRC_ATOP);
+                } else if (percent > 0.0025) {
+                    colorFilter = new PorterDuffColorFilter(Color.parseColor("#DFDFDF"), PorterDuff.Mode.SRC_ATOP);
+                } else if (percent > 0.0010) {
+                    colorFilter = new PorterDuffColorFilter(Color.parseColor("#EAEAEA"), PorterDuff.Mode.SRC_ATOP);
                 } else {
-                    colorFilter = new PorterDuffColorFilter(Color.parseColor("#FFEFEF"), PorterDuff.Mode.SRC_ATOP);
+                    colorFilter = new PorterDuffColorFilter(Color.parseColor("#EAEAEA"), PorterDuff.Mode.SRC_ATOP);
                 }
 
                 paint.setColorFilter(colorFilter);
