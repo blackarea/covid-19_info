@@ -92,31 +92,11 @@
             android:textSize="15sp" />
 
         <ImageButton
-            android:id="@+id/btn_notice"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_gravity="center"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/doctor" />
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:gravity="center"
-            android:text="생활수칙"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-        <ImageButton
             android:id="@+id/btn_mask"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_row="0"
-            android:layout_column="2"
+            android:layout_column="1"
             android:layout_gravity="center"
             android:background="#FFFFFF"
             app:srcCompat="@drawable/mask" />
@@ -125,11 +105,32 @@
             android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:layout_row="1"
-            android:layout_column="2"
+            android:layout_column="1"
             android:gravity="center"
             android:text="마스크"
             android:textColor="#000000"
             android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/btn_notice"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:background="#FFFFFF"
+            app:srcCompat="@drawable/doctor" />
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:gravity="center"
+            android:text="생활수칙"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
 
         <ImageButton
             android:id="@+id/btn_vaccine"

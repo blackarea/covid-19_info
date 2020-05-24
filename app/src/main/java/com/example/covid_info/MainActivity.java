@@ -118,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(aVoid);
 
             tv1.setText("확진자: "+parseArray[0]);
-            tv2.setText("사망자: "+parseArray[1]);
-            tv3.setText("격리해제: "+parseArray[2]);
-            tv4.setText("발병률: "+parseArray[3]);
+            tv2.setText("완치자: "+parseArray[1]);
+            tv3.setText("격리중: "+parseArray[2]);
+            tv4.setText("사망자: "+parseArray[3]);
             progressDialog.dismiss();
         }
     }
