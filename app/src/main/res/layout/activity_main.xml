@@ -18,9 +18,9 @@
         android:layout_weight="0.75"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="COVID-19"
+        android:text="코로나 정보"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
 
     <LinearLayout
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/tv2"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/tv3"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/tv4"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#000000"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
 
     </LinearLayout>
