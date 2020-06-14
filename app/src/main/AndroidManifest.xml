@@ -27,10 +27,6 @@
         <activity android:name=".SituationActivity" />
         <activity android:name=".NoticeActivity" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".MedActivity" />
-        <activity android:name=".ForeignActivity" />
-        <activity android:name=".InfoActivity" />
-
         <receiver android:name=".receiveAlarm" />
     </application>
 
