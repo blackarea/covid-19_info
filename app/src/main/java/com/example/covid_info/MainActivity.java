@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_fresh;
     private long Back;
     TextView tv1,tv2,tv3,tv4;
+    public String text1, text2, text3, text4;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonSet();
         Content c = new Content();
+        context = this;
         c.execute();
 
     }
@@ -121,6 +124,11 @@ public class MainActivity extends AppCompatActivity {
             tv2.setText("완치자: "+parseArray[1]);
             tv3.setText("격리중: "+parseArray[2]);
             tv4.setText("사망자: "+parseArray[3]);
+
+            text1 = tv1.getText().toString();
+            text2 = tv2.getText().toString();
+            text3 = tv3.getText().toString();
+            text4 = tv4.getText().toString();
             progressDialog.dismiss();
         }
     }

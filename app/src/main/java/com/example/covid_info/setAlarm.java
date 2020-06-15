@@ -11,8 +11,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class setAlarm {
-    private static int alarmCycle_HOUR = 0;
-    private static int alarmCycle_MINUTE = 3;
+    private static int alarmCycle_HOUR = 12;
+    private static int alarmCycle_MINUTE = 0;
     private static int alarmCycle_SECOND = 0;
     public static int cnt = 0;
     // 알림 주기 설정
@@ -24,12 +24,12 @@ public class setAlarm {
 
         Calendar calendar = Calendar.getInstance();
 
-        calendar.add(calendar.HOUR, alarmCycle_HOUR);
-        calendar.add(calendar.MINUTE, alarmCycle_MINUTE);
-        calendar.add(calendar.SECOND, alarmCycle_SECOND);
+        calendar.set(calendar.HOUR, alarmCycle_HOUR);
+        calendar.set(calendar.MINUTE, alarmCycle_MINUTE);
+        calendar.set(calendar.SECOND, alarmCycle_SECOND);
 
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sendingIntent);
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd kk:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd HH:mm:ss");
             // 알람에 설정된 시간을 해당 형식으로 포맷
         String setTargetTime = format.format(new Date(calendar.getTimeInMillis()));
 

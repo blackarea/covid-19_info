@@ -604,7 +604,7 @@ public class MapActivity extends AppCompatActivity {
         Dead = str[6 + areanum];
         Incidence = str[7 + areanum];
         Intent intent = new Intent(this, Popup.class);
-        intent.putExtra("data", "증감수 : " + Increase + "\n확진자 : " + Confirmer + "\n격리해제 : " + IsolCancel + "\n사망자 : " + Dead + "\n발생율 : " + Incidence);
+        intent.putExtra("data", "증감수 : " + Increase + "\n확진자 : " + Confirmer + "\n격리해제 : " + IsolCancel + "\n사망자 : " + Dead + "\n발생률 : " + Incidence);
         intent.putExtra("data2", Area);
         startActivityForResult(intent, 1);
     }
