@@ -30,8 +30,8 @@
         <receiver android:name=".receiveAlarm" />
 
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD4jMo5xAnK9qPytKfcEWedDCuhkWEOLFY"/>
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="g858cj0062" />
     </application>
 
 </manifest>
