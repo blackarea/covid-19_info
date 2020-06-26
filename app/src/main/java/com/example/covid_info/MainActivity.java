@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //메인액티비티에대한 설정
-        Intent intent = new Intent(this, loadingActivity.class);
-        startActivity(intent);
         if(setAlarm.cnt == 0) {
             setAlarm.setAlarm(this);
         }
