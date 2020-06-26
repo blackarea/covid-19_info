@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton btn_map,btn_notice,btn_mask,btn_vaccine;
+    private ImageButton btn_map,btn_alarm,btn_mask,btn_vaccine;
     private Button btn_fresh;
     private long Back;
     TextView tv1,tv2,tv3,tv4;
@@ -50,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void buttonSet(){
+        btn_alarm = (ImageButton) findViewById(R.id.btn_alarm);
+        btn_alarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, alarm_setting.class);
+                startActivity(intent);
+            }
+        });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
             btn_map = (ImageButton) findViewById(R.id.btn_map);
             btn_map.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -58,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
-            btn_notice = (ImageButton) findViewById(R.id.btn_notice);
-            btn_notice.setOnClickListener(new View.OnClickListener() {
+            btn_vaccine = (ImageButton) findViewById(R.id.btn_info);
+            btn_vaccine.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, NoticeActivity.class);
+                    Intent intent = new Intent(MainActivity.this, VaccineActivity.class);
                     startActivity(intent);
                 }
             });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
@@ -74,14 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
-            btn_vaccine = (ImageButton) findViewById(R.id.btn_vaccine);
-            btn_vaccine.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, VaccineActivity.class);
-                    startActivity(intent);
-                }
-            });//btn_notice id가 있는 버튼 입력시 NoticeActivity로 이동
+
         }
 
     private class Content extends AsyncTask<Void,Void,Void>{
