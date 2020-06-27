@@ -11,148 +11,113 @@
     android:weightSum="3"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.75"
+    <ImageButton
+        android:id="@+id/btn_alarm"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
         android:background="#FFFFFF"
-        android:gravity="center"
-        android:text="코로나 정보"
-        android:textColor="#000000"
-        android:textSize="40sp" />
+        app:srcCompat="@drawable/alarm" />
 
 
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="0.75"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="코로나 정보"
+                android:textColor="#000000"
+                android:textSize="40sp" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.75"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="28sp" />
+
+
+        </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv1"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="28sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="28sp" />
+            <ImageButton
+                android:id="@+id/btn_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/local_btn" />
 
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="28sp" />
+            <ImageButton
+                android:id="@+id/btn_mask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/mask_info" />
 
-        <TextView
-            android:id="@+id/tv4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#000000"
-            android:textSize="28sp" />
-
-
-    </LinearLayout>
-
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="0.75">
-
-        <ImageButton
-            android:id="@+id/btn_map"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_gravity="center"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/map" />
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:gravity="center"
-            android:text="지역별 현황"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-        <ImageButton
-            android:id="@+id/btn_mask"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_gravity="center"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/mask" />
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:gravity="center"
-            android:text="마스크"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-        <ImageButton
-            android:id="@+id/btn_notice"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_row="0"
-            android:layout_column="2"
-            android:layout_gravity="center"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/doctor" />
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="2"
-            android:gravity="center"
-            android:text="생활수칙"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-
-        <ImageButton
-            android:id="@+id/btn_vaccine"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_row="0"
-            android:layout_column="3"
-            android:layout_gravity="center"
-            android:background="#FFFFFF"
-            app:srcCompat="@drawable/vaccine" />
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="3"
-            android:gravity="center"
-            android:text="백신"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-    </GridLayout>
+            <ImageButton
+                android:id="@+id/btn_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/info_btn" />
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/btn_popup"
