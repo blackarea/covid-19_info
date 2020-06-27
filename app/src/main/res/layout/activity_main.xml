@@ -154,6 +154,14 @@
 
     </GridLayout>
 
+    <Button
+        android:id="@+id/btn_popup"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="알림 지역"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="10dp"
+    ></Button>
 
 </LinearLayout>
 

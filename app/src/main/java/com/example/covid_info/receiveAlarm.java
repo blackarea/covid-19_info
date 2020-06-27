@@ -10,11 +10,7 @@ import android.content.Intent;
 import android.os.Build;
 
 public class receiveAlarm extends BroadcastReceiver {
-    String parsetext1 = ((MainActivity)MainActivity.context).text1;
-    String parsetext2 = ((MainActivity)MainActivity.context).text2;
-    String parsetext3 = ((MainActivity)MainActivity.context).text3;
-    String parsetext4 = ((MainActivity)MainActivity.context).text4;
-
+    String text1 = ((MainActivity)MainActivity.context).text1;
     public void onReceive(Context context, Intent intent){
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -38,7 +34,7 @@ public class receiveAlarm extends BroadcastReceiver {
         builder.setSmallIcon(R.drawable.ic_launcher_foreground).setTicker("HETT").setWhen(System.currentTimeMillis())
                 .setContentTitle("확진자 수가 업데이트 되었습니다").setContentText("V V V V V").setContentIntent(receivingIntent)
                 .setAutoCancel(true).setOngoing(true).setStyle(new Notification.InboxStyle()
-                .addLine(parsetext1).addLine(parsetext2).addLine(parsetext3).addLine(parsetext4));
+                .addLine("서울 :" + text1 +"명").addLine("서울 :" + text1 +"명").addLine("서울 :" + text1 +"명"));
         notificationManager.notify(1, builder.build());
         // API 16이상 필수
     }

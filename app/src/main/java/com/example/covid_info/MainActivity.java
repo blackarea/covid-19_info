@@ -25,24 +25,21 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btn_map,btn_notice,btn_mask,btn_vaccine;
+    private Button btn_popup;
     private Button btn_fresh;
     private long Back;
     TextView tv1,tv2,tv3,tv4;
-    public String text1, text2, text3, text4;
+    public String text1, text2, text3, text4, text5, text6;
     public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //메인액티비티에대한 설정
-        if(setAlarm.cnt == 0) {
-            setAlarm.setAlarm(this);
-        }
         tv1 = findViewById(R.id.tv1);
         tv2 = findViewById(R.id.tv2);
         tv3 = findViewById(R.id.tv3);
         tv4 = findViewById(R.id.tv4);
-
         buttonSet();
         Content c = new Content();
         context = this;
@@ -82,11 +79,22 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });//btn_notice id가 있는 버튼 입력시 NoticeActivity로 이동
+            btn_popup = (Button) findViewById(R.id.btn_popup);
+            btn_popup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PopupActivity.class);
+                startActivity(intent);
+                }
+            });
+
+
         }
 
     private class Content extends AsyncTask<Void,Void,Void>{
         ProgressDialog progressDialog;
         String [] parseArray =new String[4];
+        String [] parseArray2 = new String[18];
 
         @Override
         protected void onPreExecute(){
@@ -97,7 +105,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            int i=0;
+            int i = 0;
+            int j = 0;
+
             try {
 
                 String url = "http://ncov.mohw.go.kr/";
@@ -107,8 +117,12 @@ public class MainActivity extends AppCompatActivity {
                 //select td라는 요소에 class 속성이 있는 td태그 안에 있는 모든 문자열을 Arraylist 형태로 갖고옴
                 Elements links = document.select("ul.liveNum li span.num");
                 //Elements는 리스트 형태이므로 Element로 변환하여 하나씩 출력
+                Elements links2 = document.select("div.rpsam_graph button span.num");
                 for(Element element : links){
                     parseArray[i++]=element.text();
+                }
+                for(Element element : links2){
+                    parseArray2[j++]=element.text();
                 }
 
             } catch (IOException e) {
@@ -129,6 +143,9 @@ public class MainActivity extends AppCompatActivity {
             text2 = tv2.getText().toString();
             text3 = tv3.getText().toString();
             text4 = tv4.getText().toString();
+
+            text6 = parseArray2[0];
+
             progressDialog.dismiss();
         }
     }
