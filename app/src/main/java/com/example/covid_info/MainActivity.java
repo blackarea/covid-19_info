@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, alarm_setting.class);
                 startActivity(intent);
             }
-        });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
+        });//btn_map id가 있는 버튼 입력시 alarm_setting으로 이동
             btn_map = (ImageButton) findViewById(R.id.btn_map);
             btn_map.setOnClickListener(new View.OnClickListener() {
                 @Override

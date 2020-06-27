@@ -15,14 +15,11 @@
         android:id="@+id/btn_alarm"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:background="#FFFFFF"
         app:srcCompat="@drawable/alarm" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,7 +84,10 @@
         </LinearLayout>
 
 
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
