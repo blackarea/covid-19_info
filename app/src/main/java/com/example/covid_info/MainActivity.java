@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import retrofit2.http.HEAD;
 
 
 import org.jsoup.Jsoup;
@@ -25,20 +26,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
-    private ImageButton btn_map,btn_notice,btn_mask,btn_vaccine;
+    private ImageButton btn_map, btn_mask, btn_vaccine, btn_alarm;
     private Button btn_popup;
-    private Button btn_fresh;
-    private long Back;
-    TextView tv1,tv2,tv3,tv4;
-    public String text1, text2, text3, text4, text5, text6;
-=======
-    private ImageButton btn_map, btn_alarm, btn_mask, btn_vaccine;
-    private Button btn_fresh;
     private long Back;
     TextView tv1, tv2, tv3, tv4;
-    public String text1, text2, text3, text4;
->>>>>>> b619c552d349ebfbe6644702c79f42e2cc146f63
+    public String text1, text2, text3, text4, text5, text6;
     public static Context context;
     private double longitude, latitude;
 
@@ -46,77 +38,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //메인액티비티에대한 설정
-<<<<<<< HEAD
-=======
-        if (setAlarm.cnt == 0) {
-            setAlarm.setAlarm(this);
-        }
->>>>>>> b619c552d349ebfbe6644702c79f42e2cc146f63
         tv1 = findViewById(R.id.tv1);
         tv2 = findViewById(R.id.tv2);
         tv3 = findViewById(R.id.tv3);
         tv4 = findViewById(R.id.tv4);
-<<<<<<< HEAD
-=======
 
         Intent intent = getIntent();
         latitude = intent.getDoubleExtra("latitude", 0);
         longitude = intent.getDoubleExtra("longitude", 0);
 
->>>>>>> b619c552d349ebfbe6644702c79f42e2cc146f63
         buttonSet();
         Content c = new Content();
         context = this;
         c.execute();
 
     }
-<<<<<<< HEAD
-    public void buttonSet(){
-            btn_map = (ImageButton) findViewById(R.id.btn_map);
-            btn_map.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, MapActivity.class);
-                    startActivity(intent);
-                }
-            });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
-            btn_notice = (ImageButton) findViewById(R.id.btn_notice);
-            btn_notice.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, NoticeActivity.class);
-                    startActivity(intent);
-                }
-            });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
-            btn_mask = (ImageButton) findViewById(R.id.btn_mask);
-            btn_mask.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, MaskActivity.class);
-                    startActivity(intent);
-                }
-            });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
-            btn_vaccine = (ImageButton) findViewById(R.id.btn_vaccine);
-            btn_vaccine.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, VaccineActivity.class);
-                    startActivity(intent);
-                }
-            });//btn_notice id가 있는 버튼 입력시 NoticeActivity로 이동
-            btn_popup = (Button) findViewById(R.id.btn_popup);
-            btn_popup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PopupActivity.class);
-                startActivity(intent);
-                }
-            });
-
-
-        }
-=======
->>>>>>> b619c552d349ebfbe6644702c79f42e2cc146f63
 
     public void buttonSet() {
         btn_alarm = (ImageButton) findViewById(R.id.btn_alarm);
@@ -153,17 +89,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
+        btn_popup = (Button) findViewById(R.id.btn_popup);
+        btn_popup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PopupActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
     private class Content extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
-<<<<<<< HEAD
-        String [] parseArray =new String[4];
-        String [] parseArray2 = new String[18];
-=======
         String[] parseArray = new String[4];
->>>>>>> b619c552d349ebfbe6644702c79f42e2cc146f63
+        String[] parseArray2 = new String[18];
 
         @Override
         protected void onPreExecute() {
@@ -175,11 +115,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             int i = 0;
-<<<<<<< HEAD
             int j = 0;
 
-=======
->>>>>>> b619c552d349ebfbe6644702c79f42e2cc146f63
             try {
 
                 String url = "http://ncov.mohw.go.kr/";
@@ -189,17 +126,12 @@ public class MainActivity extends AppCompatActivity {
                 //select td라는 요소에 class 속성이 있는 td태그 안에 있는 모든 문자열을 Arraylist 형태로 갖고옴
                 Elements links = document.select("ul.liveNum li span.num");
                 //Elements는 리스트 형태이므로 Element로 변환하여 하나씩 출력
-<<<<<<< HEAD
                 Elements links2 = document.select("div.rpsam_graph button span.num");
-                for(Element element : links){
-                    parseArray[i++]=element.text();
-=======
                 for (Element element : links) {
                     parseArray[i++] = element.text();
->>>>>>> b619c552d349ebfbe6644702c79f42e2cc146f63
                 }
-                for(Element element : links2){
-                    parseArray2[j++]=element.text();
+                for (Element element : links2) {
+                    parseArray2[j++] = element.text();
                 }
 
             } catch (IOException e) {
