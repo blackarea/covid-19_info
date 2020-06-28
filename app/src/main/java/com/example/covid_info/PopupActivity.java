@@ -137,15 +137,10 @@ public class PopupActivity extends Activity {
         });
 
 
-
-
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(PopupActivity.this,MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        finish();
     }
 
 }

@@ -76,10 +76,7 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MaskActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -284,9 +281,6 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(MaskActivity.this,MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        finish();
     }
 }
