@@ -40,6 +40,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <ImageView
+            android:id="@+id/image_filter"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_rectangle_layout"
+            android:padding="5dp"
+            android:src="@drawable/ic_filter" />
+
 
         <LinearLayout
             android:id="@+id/bottom_layout"

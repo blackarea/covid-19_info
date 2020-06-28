@@ -1,13 +1,19 @@
 package com.example.covid_info;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -50,6 +56,8 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
     private boolean state = false;
     private double longitude, latitude;
     private TextView textView_name, textView_distance, textView_remain_stat, textView_stock_at, textView_created_at, textView_search;
+    private int mask_distance = 1000;
+    private ImageView imageView_filter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,6 +85,55 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
             }
         });
 
+        imageView_filter = findViewById(R.id.image_filter);
+        imageView_filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MaskActivity.this);
+                View view = getLayoutInflater().inflate(R.layout.layout_spinner, null);
+
+                builder.setTitle("마스크 거리 설정");       // 제목 설정
+                builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                // 스피너 설정
+                final Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
+
+                // 스피너 어댑터 설정
+                ArrayAdapter spinner_adapter = ArrayAdapter.createFromResource(MaskActivity.this, R.array.filter, R.layout.custom_spinner_list);
+
+                spinner.setAdapter(spinner_adapter);
+
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if (position == 0) {
+                            mask_distance = 1000;
+                        } else if (position == 1) {
+                            mask_distance = 3000;
+                        } else if (position == 2) {
+                            mask_distance = 5000;
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+
+
+                });
+
+                builder.setView(view);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }
+        });
 
         FragmentManager fm = getSupportFragmentManager();
         MapFragment mapFragment = (MapFragment) fm.findFragmentById(R.id.map);
@@ -128,7 +185,7 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
         naverMap.setCameraPosition(cameraPosition);
 
         LatLng mapCenter = naverMap.getCameraPosition().target;
-        fetchStoreSale(mapCenter.latitude, mapCenter.longitude, 1000);
+        fetchStoreSale(mapCenter.latitude, mapCenter.longitude, mask_distance);
 
     }
 
@@ -148,7 +205,7 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
     public void onCameraIdle() {
         if (isCameraAnimated) {
             LatLng mapCenter = naverMap.getCameraPosition().target;
-            fetchStoreSale(mapCenter.latitude, mapCenter.longitude, 5000);
+            fetchStoreSale(mapCenter.latitude, mapCenter.longitude, mask_distance);
         }
     }
 
