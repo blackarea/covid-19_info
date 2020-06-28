@@ -67,6 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text=">>2020년 6월 12일 기준 세계 누적 확진자 수 1000만명 돌파..."
                 android:textSize="15sp" />
@@ -83,6 +85,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text=">>2020년 6월 28일 기준 코로나 사망자수 50만명 돌파"
                 android:textSize="15sp" />
@@ -99,6 +103,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text=">>WHO '백신 전세계 공유되어야...' 강조"
                 android:textSize="15sp" />
@@ -115,6 +121,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text=">>WHO '백신 20억개 공동구매 추진할것...' 성명"
                 android:textSize="15sp" />
@@ -131,6 +139,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text=">>코로나 확진으로 인해 18세 이상 남성의 스트리밍 시청시간 확진 이전보다 3.5배 증가..."
                 android:textSize="15sp" />
@@ -147,6 +157,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:text=">>2020년 6월 16일 코로나 종식 선언한 뉴질랜드에서 일주일만에 신규확진자 발생으로 추가 감염 우려..."
                 android:textSize="15sp" />
