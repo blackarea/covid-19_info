@@ -3,14 +3,12 @@ package com.example.covid_info;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -35,6 +33,9 @@ public class PopupActivity extends Activity {
         min = String.valueOf(cal.get(Calendar.MINUTE));
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
 
+        /* 시간 조절을 하기 위한 TimePicker 생성
+           해당 시간값은 각각 변수에 저장되어 SetAlarm로 전달됨 */
+
         timepicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener(){
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute){
@@ -45,6 +46,9 @@ public class PopupActivity extends Activity {
                 min_text = minute;
             }
         });
+
+        /* 지역 선택을 위한 Spinner 생성
+           해당 지역이 선택되면 지역명과 *번째 지역인지 전달 */
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -123,6 +127,7 @@ public class PopupActivity extends Activity {
                 }
             }
 
+        /* 설정 버튼을 누르면 SetAlarm이 실행되어 알람이 설정되게 함 */
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

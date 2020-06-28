@@ -14,7 +14,9 @@ import androidx.annotation.RequiresApi;
 public class receiveAlarm extends BroadcastReceiver {
     String loc = ((MainActivity)MainActivity.context).loc_text;
     String loc_plus = ((MainActivity)MainActivity.context).loc_text2;
+    // MainActivity에서 파싱된 지역별 수치값을 가져옴
     String loc_name = PopupActivity.location_text;
+    // PopupActivity에서 지역 명을 가져옴
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onReceive(Context context, Intent intent){
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -33,13 +35,14 @@ public class receiveAlarm extends BroadcastReceiver {
 
         Intent receiveIntent = new Intent(context, MainActivity.class);
         PendingIntent receivingIntent = PendingIntent.getBroadcast(context, 0, receiveIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        //Notification.Builder builder = new Notification.Builder(context,"alarm_channel_id");
-        // API 26이상 빌더
+        //Notification.Builder builder = new Notification.Builder(context);
+        // API 26미만 빌더 API 26이상일때 채널ID 필요
         Notification.Builder builder = new Notification.Builder(context,"alarm_channel_id");
         builder.setSmallIcon(R.drawable.ic_launcher_foreground).setTicker("HETT").setWhen(System.currentTimeMillis())
                 .setContentTitle("선택된 지역의 확진자 수가 업데이트 되었습니다").setContentText("V V V V V").setContentIntent(receivingIntent)
                 .setAutoCancel(true).setOngoing(true).setStyle(new Notification.InboxStyle()
                 .addLine(loc_name +" 지역 :"+ loc +" 명").addLine("전날 대비" + loc_plus));
+        // 푸시 알림내 메세지 설정
         notificationManager.notify(1, builder.build());
         // API 16이상 필수
     }

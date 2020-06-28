@@ -163,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
 
             loc_text = parseArray2[index];
             loc_text2 = parseArray3[index];
-            //Log.v("하하", "허허"+loc_text);
             progressDialog.dismiss();
         }
     }
