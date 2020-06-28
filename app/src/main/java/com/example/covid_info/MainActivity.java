@@ -28,8 +28,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_alarm;
-    private Button btn_popup;
+    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_alarm,btn_popup;
     private long Back;
     TextView tv1, tv2, tv3, tv4;
     public String text1, text2, text3, text4;
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public static Context context;
     private double longitude, latitude;
     int index = PopupActivity.index;
+    private boolean first_start=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +47,14 @@ public class MainActivity extends AppCompatActivity {
         tv3 = findViewById(R.id.tv3);
         tv4 = findViewById(R.id.tv4);
 
+
         Intent intent = getIntent();
-        latitude = intent.getDoubleExtra("latitude", 0);
-        longitude = intent.getDoubleExtra("longitude", 0);
+        if(first_start){
+            latitude = intent.getDoubleExtra("latitude", 0);
+            longitude = intent.getDoubleExtra("longitude", 0);
+            first_start=false;
+            Log.i("???", latitude+" "+longitude);
+        }
 
         buttonSet();
         Content c = new Content();
@@ -60,14 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonSet() {
 
-
         btn_map = (LinearLayout) findViewById(R.id.btn_map);
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MapActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
@@ -76,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, VaccineActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
@@ -88,18 +88,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, MaskActivity.class);
                 intent.putExtra("latitude", latitude);
                 intent.putExtra("longitude", longitude);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
-        btn_popup = (Button) findViewById(R.id.btn_popup);
+        btn_popup = (LinearLayout) findViewById(R.id.btn_popup);
         btn_popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, PopupActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
@@ -120,9 +116,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            int i = 0;
-            int j = 0;
-            int k = 0;
+            int index0 = 0;
+            int index1 = 0;
+            int index2 = 0;
 
             try {
 
@@ -136,13 +132,13 @@ public class MainActivity extends AppCompatActivity {
                 Elements links2 = document.select("div.rpsam_graph button span.num");
                 Elements links3 = document.select("div.rpsam_graph button span.before");
                 for (Element element : links) {
-                    parseArray[i++] = element.text();
+                    parseArray[index0++] = element.text();
                 }
                 for (Element element : links2) {
-                    parseArray2[j++] = element.text();
+                    parseArray2[index1++] = element.text();
                 }
                 for (Element element : links3) {
-                    parseArray3[k++] = element.text();
+                    parseArray3[index2++] = element.text();
                 }
 
             } catch (IOException e) {

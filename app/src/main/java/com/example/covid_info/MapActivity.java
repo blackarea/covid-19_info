@@ -58,10 +58,7 @@ public class MapActivity extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MapActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                finish();
             }
 
         });
@@ -613,6 +610,11 @@ public class MapActivity extends AppCompatActivity {
         intent.putExtra("data", "증감수 : " + Increase + "\n확진자 : " + Confirmer + "\n격리해제 : " + IsolCancel + "\n사망자 : " + Dead + "\n발생률 : " + Incidence);
         intent.putExtra("data2", Area);
         startActivityForResult(intent, 1);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }
 

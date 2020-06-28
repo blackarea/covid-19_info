@@ -18,13 +18,33 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
+        <LinearLayout
             android:id="@+id/btn_popup"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="30dp"
-            android:layout_marginLeft="150dp"
-            android:text="알림 설정" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/alarm" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="알림 설정"
+                android:textColor="#000000"
+                android:textSize="10sp" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +71,8 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#000000"
-            android:textSize="28sp" />
+            android:textSize="28sp"
+            android:layout_weight="0.5"/>
 
         <TextView
             android:id="@+id/tv2"
@@ -59,7 +80,8 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#000000"
-            android:textSize="28sp" />
+            android:textSize="28sp"
+            android:layout_weight="0.5"/>
 
         <TextView
             android:id="@+id/tv3"
@@ -67,7 +89,8 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#000000"
-            android:textSize="28sp" />
+            android:textSize="28sp"
+            android:layout_weight="0.5"/>
 
         <TextView
             android:id="@+id/tv4"
@@ -75,7 +98,8 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="#000000"
-            android:textSize="28sp" />
+            android:textSize="28sp"
+            android:layout_weight="0.5"/>
 
 
     </LinearLayout>
@@ -86,52 +110,57 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="0.5"
-        android:paddingBottom="100dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="100dp">
 
         <LinearLayout
             android:id="@+id/btn_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:background="@drawable/round_rectangle_layout"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="#FFFFFF"
+                android:layout_width="95dp"
+                android:layout_height="80dp"
                 android:scaleType="fitCenter"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/map" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
                 android:text="지역별 현황"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
 
         <LinearLayout
             android:id="@+id/btn_mask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:background="@drawable/round_rectangle_layout"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/mask" />
@@ -142,23 +171,26 @@
                 android:layout_gravity="center"
                 android:text="마스크 정보"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btn_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:background="@drawable/round_rectangle_layout"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="10dp"
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:background="#FFFFFF"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/doctor" />
@@ -169,7 +201,7 @@
                 android:layout_gravity="center"
                 android:text="정보"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </LinearLayout>
     </LinearLayout>
 
