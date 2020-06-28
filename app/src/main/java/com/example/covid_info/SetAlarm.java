@@ -32,7 +32,7 @@ public class SetAlarm extends Activity {
         SimpleDateFormat format = new SimpleDateFormat("MM/dd HH:mm:ss");
         // 알람에 설정된 시간을 해당 형식으로 포맷
         String setTargetTime = format.format(new Date(calendar.getTimeInMillis()));
-        Toast myToast = Toast.makeText(context, "업데이트 일자 : " + setTargetTime, Toast.LENGTH_LONG);
+        Toast myToast = Toast.makeText(context, "알림 시간 : " + setTargetTime, Toast.LENGTH_LONG);
         // 설정된 시간을 토스트 알림으로 나타냄
         myToast.show();
     }
