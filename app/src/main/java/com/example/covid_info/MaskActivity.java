@@ -3,14 +3,11 @@ package com.example.covid_info;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.graphics.PointF;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -79,7 +76,6 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
                 finish();
             }
         });
-
 
 
         FragmentManager fm = getSupportFragmentManager();
@@ -279,6 +275,7 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
 
         return result;
     }
+
     @Override
     public void onBackPressed() {
         finish();

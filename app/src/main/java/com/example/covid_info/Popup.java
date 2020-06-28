@@ -3,12 +3,9 @@ package com.example.covid_info;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class Popup extends Activity {
 
@@ -24,8 +21,8 @@ public class Popup extends Activity {
         setContentView(R.layout.popup);
 
         //UI 객체생성
-        txtText = (TextView)findViewById(R.id.txtText);
-        txtText2 = (TextView)findViewById(R.id.txtText2);
+        txtText = (TextView) findViewById(R.id.txtText);
+        txtText2 = (TextView) findViewById(R.id.txtText2);
 
         //데이터 가져오기
         Intent intent = getIntent();
@@ -36,11 +33,13 @@ public class Popup extends Activity {
 
 
     }
+
     //확인 버튼 클릭
-    public void mOnClose(View v){
+    public void mOnClose(View v) {
         //액티비티(팝업) 닫기
         finish();
     }
+
     @Override
     public void onBackPressed() {
         //안드로이드 백버튼 막기

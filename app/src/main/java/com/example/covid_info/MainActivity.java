@@ -5,18 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import retrofit2.http.HEAD;
-
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,11 +18,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_alarm,btn_popup;
+    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_alarm, btn_popup;
     private long Back;
     TextView tv1, tv2, tv3, tv4;
     public String text1, text2, text3, text4;
@@ -36,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public static Context context;
     private double longitude, latitude;
     int index = PopupActivity.index;
-    private boolean first_start=true;
+    private boolean first_start = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        if(first_start){
+        if (first_start) {
             latitude = intent.getDoubleExtra("latitude", 0);
             longitude = intent.getDoubleExtra("longitude", 0);
-            first_start=false;
-            Log.i("???", latitude+" "+longitude);
+            first_start = false;
         }
 
         buttonSet();

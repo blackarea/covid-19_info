@@ -15,7 +15,7 @@ import java.util.Date;
 public class SetAlarm extends Activity {
     /* 해당 시간에 알림을 설정 */
 
-    public static void setAlarm(Context context){
+    public static void setAlarm(Context context) {
         int alarmCycle_HOUR = PopupActivity.hour_text;
         int alarmCycle_MINUTE = PopupActivity.min_text;
         // PopupActivity에서 설정된 시간을 가져옴

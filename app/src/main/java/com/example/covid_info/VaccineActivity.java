@@ -1,12 +1,11 @@
 package com.example.covid_info;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class VaccineActivity extends AppCompatActivity {
 
@@ -17,7 +16,7 @@ public class VaccineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vaccine);
 
-        btnHome=findViewById(R.id.btnHome);
+        btnHome = findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,6 +24,7 @@ public class VaccineActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public void onBackPressed() {
         finish();
