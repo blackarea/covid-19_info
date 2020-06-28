@@ -28,8 +28,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_alarm;
-    private Button btn_popup;
+    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_alarm,btn_popup;
     private long Back;
     TextView tv1, tv2, tv3, tv4;
     public String text1, text2, text3, text4;
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
-        btn_popup = (Button) findViewById(R.id.btn_popup);
+        btn_popup = (LinearLayout) findViewById(R.id.btn_popup);
         btn_popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
