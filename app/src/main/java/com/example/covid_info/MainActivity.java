@@ -21,10 +21,9 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_alarm, btn_popup;
+    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_popup;
     private long Back;
     TextView tv1, tv2, tv3, tv4;
-    public String text1, text2, text3, text4;
     public static String loc_text, loc_text2;
     public static Context context;
     private double longitude, latitude;
@@ -41,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
         tv4 = findViewById(R.id.tv4);
 
 
+        /**
+        * 처음 앱 실행시 MainActivity에서 MaskActivity로 데이터 전송함.
+        * **/
         Intent intent = getIntent();
         if (first_start) {
             latitude = intent.getDoubleExtra("latitude", 0);
@@ -92,7 +94,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * 파싱을 할떄 AsyncTask에서 doInBackground에서 작업을 실행하기전에 onPreExcute를 통해 실행됨
+     * **/
     private class Content extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
         String[] parseArray = new String[4];
@@ -106,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
             progressDialog.show();
         }
 
+        /**
+         * 데이터를 필요한 사이트에서 가져와 parseArray배열에 저장한다.
+         * **/
         @Override
         protected Void doInBackground(Void... voids) {
             int index0 = 0;
@@ -138,7 +145,9 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
-
+        /**
+         * parseArray에 저장한 데이터를 setText를 통해 데이터를 표시함.
+         * **/
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
