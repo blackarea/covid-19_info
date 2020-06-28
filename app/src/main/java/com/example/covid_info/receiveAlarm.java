@@ -42,7 +42,7 @@ public class receiveAlarm extends BroadcastReceiver {
         builder.setSmallIcon(R.drawable.ic_launcher_foreground).setTicker("HETT").setWhen(System.currentTimeMillis())
                 .setContentTitle("선택된 지역의 확진자 수가 업데이트 되었습니다").setContentText("V V V V V").setContentIntent(receivingIntent)
                 .setAutoCancel(true).setOngoing(true).setStyle(new Notification.InboxStyle()
-                .addLine(loc_name + " 지역 :" + loc + " 명").addLine("전날 대비" + loc_plus));
+                .addLine(loc_name + " 지역 : " + loc + "명" + "  전날 대비 " + loc_plus));
         // 푸시 알림내 메세지 설정
         notificationManager.notify(1, builder.build());
         // API 16이상 필수
