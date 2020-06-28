@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         btn_vaccine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, VaccineActivity.class);
+                Intent intent = new Intent(MainActivity.this, InfoActivity.class);
                 startActivity(intent);
             }
         });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
