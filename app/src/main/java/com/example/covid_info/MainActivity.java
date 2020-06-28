@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton btn_map, btn_mask, btn_vaccine, btn_alarm;
+    private LinearLayout btn_map, btn_mask, btn_vaccine, btn_alarm;
     private Button btn_popup;
     private long Back;
     TextView tv1, tv2, tv3, tv4;
@@ -55,37 +56,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonSet() {
-        btn_alarm = (ImageButton) findViewById(R.id.btn_alarm);
-        btn_alarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, alarm_setting.class);
-                startActivity(intent);
-            }
-        });//btn_map id가 있는 버튼 입력시 alarm_setting으로 이동
-        btn_map = (ImageButton) findViewById(R.id.btn_map);
+
+
+        btn_map = (LinearLayout) findViewById(R.id.btn_map);
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });//btn_map id가 있는 버튼 입력시 MapActivity로 이동
-        btn_vaccine = (ImageButton) findViewById(R.id.btn_info);
+        btn_vaccine = (LinearLayout) findViewById(R.id.btn_info);
         btn_vaccine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, VaccineActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });//btn_info id가 있는 버튼 입력시 InfoActivity로 이동
-        btn_mask = (ImageButton) findViewById(R.id.btn_mask);
+        btn_mask = (LinearLayout) findViewById(R.id.btn_mask);
         btn_mask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MaskActivity.class);
                 intent.putExtra("latitude", latitude);
                 intent.putExtra("longitude", longitude);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });//btn_med id가 있는 버튼 입력시 MedActivity로 이동
@@ -94,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, PopupActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
