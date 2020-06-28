@@ -20,6 +20,7 @@ public class PopupActivity extends Activity {
     TimePicker timepicker;
     String hour, min;
     public static String location_text;
+    public static int index;
     public static int hour_text, min_text;
     private Button pressOK;
 
@@ -46,9 +47,80 @@ public class PopupActivity extends Activity {
         });
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                location.setText("지역 :" +adapterView.getItemAtPosition(i));
-                location_text = spinner.getSelectedItem().toString();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                location.setText("지역 :" +adapterView.getItemAtPosition(position));
+                if(position == 0){
+                    index = 0;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 1){
+                    index = 1;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 2){
+                    index = 2;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 3){
+                    index = 3;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 4){
+                    index = 4;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 5){
+                    index = 5;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 6){
+                    index = 6;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 7){
+                    index = 7;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 8){
+                    index = 8;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 9){
+                    index = 9;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 10){
+                    index = 10;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 11){
+                    index = 11;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 12){
+                    index = 12;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 13){
+                    index = 13;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 14){
+                    index = 14;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 15){
+                    index = 15;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 16){
+                    index = 16;
+                    location_text = spinner.getSelectedItem().toString();
+                }
+                if(position == 17){
+                    index = 17;
+                    location_text = spinner.getSelectedItem().toString();
+                }
             }
 
             @Override

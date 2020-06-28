@@ -9,8 +9,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
+import androidx.annotation.RequiresApi;
+
 public class receiveAlarm extends BroadcastReceiver {
-    String text1 = ((MainActivity)MainActivity.context).text1;
+    String loc = ((MainActivity)MainActivity.context).loc_text;
+    String loc_plus = ((MainActivity)MainActivity.context).loc_text2;
+    String loc_name = PopupActivity.location_text;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onReceive(Context context, Intent intent){
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -32,9 +37,9 @@ public class receiveAlarm extends BroadcastReceiver {
         // API 26이상 빌더
         Notification.Builder builder = new Notification.Builder(context,"alarm_channel_id");
         builder.setSmallIcon(R.drawable.ic_launcher_foreground).setTicker("HETT").setWhen(System.currentTimeMillis())
-                .setContentTitle("확진자 수가 업데이트 되었습니다").setContentText("V V V V V").setContentIntent(receivingIntent)
+                .setContentTitle("선택된 지역의 확진자 수가 업데이트 되었습니다").setContentText("V V V V V").setContentIntent(receivingIntent)
                 .setAutoCancel(true).setOngoing(true).setStyle(new Notification.InboxStyle()
-                .addLine("서울 :" + text1 +"명").addLine("서울 :" + text1 +"명").addLine("서울 :" + text1 +"명"));
+                .addLine(loc_name +" 지역 :"+ loc +" 명").addLine("전날 대비" + loc_plus));
         notificationManager.notify(1, builder.build());
         // API 16이상 필수
     }

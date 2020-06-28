@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -31,9 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_popup;
     private long Back;
     TextView tv1, tv2, tv3, tv4;
-    public String text1, text2, text3, text4, text5, text6;
+    public String text1, text2, text3, text4;
+    public static String loc_text, loc_text2;
     public static Context context;
     private double longitude, latitude;
+    int index = PopupActivity.index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,13 +103,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     private class Content extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
         String[] parseArray = new String[4];
         String[] parseArray2 = new String[18];
+        String[] parseArray3 = new String[18];
 
         @Override
         protected void onPreExecute() {
@@ -119,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             int i = 0;
             int j = 0;
+            int k = 0;
 
             try {
 
@@ -130,11 +134,15 @@ public class MainActivity extends AppCompatActivity {
                 Elements links = document.select("ul.liveNum li span.num");
                 //Elements는 리스트 형태이므로 Element로 변환하여 하나씩 출력
                 Elements links2 = document.select("div.rpsam_graph button span.num");
+                Elements links3 = document.select("div.rpsam_graph button span.before");
                 for (Element element : links) {
                     parseArray[i++] = element.text();
                 }
                 for (Element element : links2) {
                     parseArray2[j++] = element.text();
+                }
+                for (Element element : links3) {
+                    parseArray3[k++] = element.text();
                 }
 
             } catch (IOException e) {
@@ -152,13 +160,10 @@ public class MainActivity extends AppCompatActivity {
             tv3.setText("격리중: " + parseArray[2]);
             tv4.setText("사망자: " + parseArray[3]);
 
-            text1 = tv1.getText().toString();
-            text2 = tv2.getText().toString();
-            text3 = tv3.getText().toString();
-            text4 = tv4.getText().toString();
 
-            text6 = parseArray2[0];
-
+            loc_text = parseArray2[index];
+            loc_text2 = parseArray3[index];
+            //Log.v("하하", "허허"+loc_text);
             progressDialog.dismiss();
         }
     }
