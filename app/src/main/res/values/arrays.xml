@@ -20,4 +20,10 @@
         <item>제주</item>
         <item>검역</item>
     </string-array>
+    <string-array name="filter">
+        <item>500m</item>
+        <item>1k</item>
+        <item>3k</item>
+        <item>5k</item>
+    </string-array>
 </resources>

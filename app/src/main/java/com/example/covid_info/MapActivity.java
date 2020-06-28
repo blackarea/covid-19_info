@@ -14,7 +14,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -32,15 +31,15 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 public class MapActivity extends AppCompatActivity {
-    int i = 0;
-    String str[] = new String[200];
-    String Increase;
-    String Confirmer;
-    String IsolCancel;
-    String Dead;
-    String Incidence;
-    String Area = "지역";
-    int areanum = 0;
+    int map_num = 0;
+    private String str[] = new String[200];
+    private String Increase;
+    private String Confirmer;
+    private String IsolCancel;
+    private String Dead;
+    private String Incidence;
+    private String Area = "지역";
+    int areaNum = 0;
     private ImageButton btnHome;
     //지도가 들어가는 레이아웃
     private RelativeLayout relativeLayout;
@@ -83,13 +82,14 @@ public class MapActivity extends AppCompatActivity {
 
         makeLinearLayout();
 
-        Content c = new Content();
-        c.execute();
+        Content content = new Content();
+        content.execute();
     }
 
+    /**
+     * 팝업 윈도우 파싱 함수
+     */
     private class Content extends AsyncTask<Void, Void, Void> {
-
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -99,23 +99,25 @@ public class MapActivity extends AppCompatActivity {
         @Override
         public Void doInBackground(Void... voids) {
             try {
-                i = 0;
+                map_num = 0;
                 String url = "http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=13&ncvContSeq=&contSeq=&board_id=&gubun=";
                 Document document = Jsoup.connect(url).get();
                 Elements links = document.select("td[class]");
                 for (Element element : links) {
-                    str[i] = element.text();
-                    i++;
+                    str[map_num] = element.text();
+                    map_num++;
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
-
             }
             return null;
         }
     }
 
+    /**
+     * 지도의 파싱 함수
+     */
     private class MapParser extends AsyncTask<Void, Void, Void> {
         String parseString = "";
 
@@ -209,7 +211,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(0);
+                popupWindowFunction(0);
             }
         });
         //서울
@@ -218,7 +220,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(1);
+                popupWindowFunction(1);
             }
         });
         //인천
@@ -227,7 +229,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(2);
+                popupWindowFunction(2);
             }
         });
         //강원
@@ -236,7 +238,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(3);
+                popupWindowFunction(3);
             }
         });
         //충북
@@ -245,7 +247,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[4].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(4);
+                popupWindowFunction(4);
             }
         });
         //충남
@@ -254,7 +256,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[5].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(5);
+                popupWindowFunction(5);
             }
         });
         //대전
@@ -263,7 +265,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[6].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(6);
+                popupWindowFunction(6);
             }
         });
         //경북
@@ -272,7 +274,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[7].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(7);
+                popupWindowFunction(7);
             }
         });
         //경남
@@ -281,7 +283,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[8].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(8);
+                popupWindowFunction(8);
             }
         });
         //전북
@@ -290,7 +292,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[9].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(9);
+                popupWindowFunction(9);
             }
         });
         //전남
@@ -299,7 +301,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[10].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(10);
+                popupWindowFunction(10);
             }
         });
         //광주
@@ -308,7 +310,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[11].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(11);
+                popupWindowFunction(11);
             }
         });
         //대구
@@ -317,7 +319,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[12].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(12);
+                popupWindowFunction(12);
             }
         });
         //울산
@@ -326,7 +328,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[13].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(13);
+                popupWindowFunction(13);
             }
         });
         //부산
@@ -335,7 +337,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[14].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(14);
+                popupWindowFunction(14);
             }
         });
         //제주
@@ -344,7 +346,7 @@ public class MapActivity extends AppCompatActivity {
         linearTextView[15].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Seoul(15);
+                popupWindowFunction(15);
             }
         });
 
@@ -356,7 +358,6 @@ public class MapActivity extends AppCompatActivity {
      * 11. 서울   15. 충남    19. 전북    23. 울산
      * 12. 인천   16. 대전    20. 전남    24. 부산
      * 13. 강원   17. 경북    21. 광주    25. 제주
-     * <p>
      * 지도를 만드는 클래스
      * 좌표로 정확하게 만들기위해 xml에서 만들지 않고 액티비티에서 생성
      * Rect로 사각형을 만든뒤 그위에 bitmap을 씌우는 방식(좌표를 활용하려고)
@@ -543,66 +544,69 @@ public class MapActivity extends AppCompatActivity {
         return i;
     }
 
-    public void Seoul(int i) {
-        int k = 1;
+    /**
+     * 지도에서 지역 클릭시 뜨는 팝업 창
+     */
+    public void popupWindowFunction(int i) {
+        int value = 1;
         if (i == 0) {
             Area = "경기";
-            k = 9;
+            value = 9;
         } else if (i == 1) {
             Area = "서울";
-            k = 1;
+            value = 1;
         } else if (i == 2) {
             Area = "인천";
-            k = 4;
+            value = 4;
         } else if (i == 3) {
             Area = "강원";
-            k = 10;
+            value = 10;
         } else if (i == 4) {
             Area = "충북";
-            k = 11;
+            value = 11;
         } else if (i == 5) {
             Area = "충남";
-            k = 12;
+            value = 12;
         } else if (i == 6) {
             Area = "대전";
-            k = 6;
+            value = 6;
         } else if (i == 7) {
             Area = "경북";
-            k = 15;
+            value = 15;
         } else if (i == 8) {
             Area = "경남";
-            k = 16;
+            value = 16;
         } else if (i == 9) {
             Area = "전북";
-            k = 13;
+            value = 13;
         } else if (i == 10) {
             Area = "전남";
-            k = 14;
+            value = 14;
         } else if (i == 11) {
             Area = "광주";
-            k = 5;
+            value = 5;
         } else if (i == 12) {
             Area = "대구";
-            k = 3;
+            value = 3;
         } else if (i == 13) {
             Area = "울산";
-            k = 7;
+            value = 7;
         } else if (i == 14) {
             Area = "부산";
-            k = 2;
+            value = 2;
         } else if (i == 15) {
             Area = "제주";
-            k = 17;
+            value = 17;
         } else if (i == 16) {
             Area = "세종";
-            k = 8;
+            value = 8;
         }
-        areanum = 8 * k;
-        Increase = str[areanum];
-        Confirmer = str[3 + areanum];
-        IsolCancel = str[5 + areanum];
-        Dead = str[6 + areanum];
-        Incidence = str[7 + areanum];
+        areaNum = 8 * value;
+        Increase = str[areaNum];
+        Confirmer = str[3 + areaNum];
+        IsolCancel = str[5 + areaNum];
+        Dead = str[6 + areaNum];
+        Incidence = str[7 + areaNum];
         Intent intent = new Intent(this, Popup.class);
         intent.putExtra("data", "증감수 : " + Increase + "\n확진자 : " + Confirmer + "\n격리해제 : " + IsolCancel + "\n사망자 : " + Dead + "\n발생률 : " + Incidence);
         intent.putExtra("data2", Area);

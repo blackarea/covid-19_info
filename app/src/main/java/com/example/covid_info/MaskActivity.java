@@ -3,11 +3,14 @@ package com.example.covid_info;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.graphics.PointF;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -59,7 +62,6 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
         Intent intent = getIntent();
         latitude = intent.getDoubleExtra("latitude", 0);
         longitude = intent.getDoubleExtra("longitude", 0);
-        Log.i("?????", latitude + " " + longitude);
 
         linearLayout = findViewById(R.id.bottom_layout);
         textView_name = findViewById(R.id.textView_name);
@@ -78,6 +80,8 @@ public class MaskActivity extends AppCompatActivity implements NaverMap.OnMapCli
                 startActivity(intent);
             }
         });
+
+
 
         FragmentManager fm = getSupportFragmentManager();
         MapFragment mapFragment = (MapFragment) fm.findFragmentById(R.id.map);
