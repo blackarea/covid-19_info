@@ -13,6 +13,11 @@
 [위키피디아주소](https://ko.wikipedia.org/wiki/%EA%B3%B5%EC%A0%81_%EB%A7%88%EC%8A%A4%ED%81%AC)
 <br><br>
 
+### 앱 사진
+<img src="https://user-images.githubusercontent.com/47111722/139572124-eab4e054-cace-4ab1-80c8-4bb273123601.png" width="230" height="500">
+<img src="https://user-images.githubusercontent.com/47111722/139572128-8e00eb68-0395-4ed8-a465-dd9e36fcf4dd.png" width="230" height="500">
+
+
 ## 만든이
 
 20200302 ~ 20200411
